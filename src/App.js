@@ -1,9 +1,17 @@
-
+import React from 'react';
 import './App.css';
+import PaymentForm from './components/PaymentForm';
 
 function App() {
   return (
-    <h1>Hello World</h1>
+    <div className="App">
+      <header className="App-header">
+        <h1>Payment Gateway with Cryptocurrencies</h1>
+      </header>
+      <main>
+        <PaymentForm />
+      </main>
+    </div>
   );
 }
 

@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
 import api from "../services/api";
 
-function PaymentForm() {
+function PaymentForm({ handleCreatePayment }) {
   const [amount, setAmount] = useState("");
   const [concept, setConcept] = useState("");
   const [cryptoCurrencies, setCryptoCurrencies] = useState([]);
   const [selectedCurrency, setSelectedCurrency] = useState("");
-  const [filteredCryptoCurrencies, setFilteredCryptoCurrencies] = useState([]); //
+  const [filteredCryptoCurrencies, setFilteredCryptoCurrencies] = useState([]);
 
   useEffect(() => {
     fetchCryptoCurrencies();
@@ -28,26 +28,16 @@ function PaymentForm() {
     }
   };
 
-  const handleCreatePayment = async () => {
+  const createPayment = async () => {
     try {
       const formData = new FormData();
-      formData.append("expected_output_amount", amount); // Cambiar el valor según el monto deseado
-      formData.append("input_currency", selectedCurrency); // Cambiar a la criptomoneda deseada
-      const myHeaders = new Headers();
-      myHeaders.append("X-Device-Id", "551a269b-ca34-42ef-bc3c-2f0d869e103b");
-      const requestOptions = {
-        method: "POST",
-        headers: myHeaders,
-        body: formData,
-        redirect: "follow",
-      };
+      formData.append("expected_output_amount", amount);
+      formData.append("input_currency", selectedCurrency);
+      formData.append("notes", concept);
 
-      const response = await fetch(
-        "https://payments.pre-bnvo.com/api/v1/orders/",
-        requestOptions
-      );
-      const result = await response.text();
-      console.log(result);
+      const response = await api.post("/orders/", formData);
+      const result = response.data;
+      handleCreatePayment(result, selectedCurrency);
     } catch (error) {
       console.log("error", error);
     }
@@ -69,7 +59,9 @@ function PaymentForm() {
       />
       <select
         value={selectedCurrency}
-        onChange={(e) => setSelectedCurrency(e.target.value)}
+        onChange={(e) => {
+          setSelectedCurrency(e.target.value);
+        }}
       >
         <option value="">Select Currency</option>
         {filteredCryptoCurrencies.map((currency) => (
@@ -78,7 +70,7 @@ function PaymentForm() {
           </option>
         ))}
       </select>
-      <button onClick={handleCreatePayment}>Create Payment</button>
+      <button onClick={createPayment}>Create Payment</button>
     </div>
   );
 }

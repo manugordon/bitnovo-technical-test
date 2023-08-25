@@ -1,0 +1,57 @@
+.payment-details {
+  padding: 10em 0;
+  margin: auto;
+}
+
+.payment-details-card {
+  background-color: #f9fafc !important;
+  border-radius: 8px !important;
+  box-shadow: none !important;
+}
+
+.payment-details-card-content td {
+  font-weight: 700 !important;
+}
+
+.payment-details-card-pay {
+  padding: 24px;
+}
+
+.payment-details-card-actions {
+  justify-content: center;
+  align-items: center;
+  padding: 2em;
+}
+
+.payment-details-card-actions button.active {
+  color: white !important;
+  background-color: #0465dd;
+}
+
+.payment-details-card-actions-divider {
+  border-left: 1px solid #d3dce6;
+  margin: 0 8px;
+  height: 30px;
+}
+
+.payment-details-card-qr {
+  width: fit-content; /* Ajustar al contenido */
+  margin: 2em auto; /* Centrar horizontalmente */
+}
+
+.payment-details-card-qr div {
+  padding-bottom: 16px !important;
+}
+
+.payment-details-metamask {
+  min-height: 160px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 2em auto !important;
+}
+
+.payment-details-metamask-button {
+  background-color: #ffffff !important;
+  border-radius: 24px !important;
+}

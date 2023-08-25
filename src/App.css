@@ -1,0 +1,31 @@
+/* App.css */
+body,
+html {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  max-height: 100vh;
+  font-family: "Mulish Variable", sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+span,
+button,
+td {
+  font-family: "Mulish Variable", sans-serif !important;
+  color: #002859 !important;
+}
+
+main {
+  max-width: 80%;
+  margin: auto;
+}
+
+.center {
+  text-align: center;
+}

@@ -1,0 +1,16 @@
+/* PaymentForm.css */
+.payment-form {
+  padding: 10em 15em;
+  margin: auto;
+}
+.payment-form .MuiTextField-root,
+.payment-form .MuiFormControl-root,
+.payment-form .MuiButton-root {
+  width: 100%;
+}
+.payment-form .MuiButton-root {
+  padding: 1em;
+  color: white !important;
+  background-color: #0465dd;
+  text-transform: capitalize;
+}
